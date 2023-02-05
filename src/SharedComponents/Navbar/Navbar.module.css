@@ -1,93 +1,89 @@
-.navbar{
-    background-color: #D6EDFF;
+.navbar {
+    background-color: #ECF9FF;
 }
 
-.navbar>.brandStyle{
+.navbar>.logos>.brandStyle {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     color: black;
-    padding: 50px 0 10px 0;
 }
 
-.navbar>.brandStyle>.logo{
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
+.navbar>.logos>.brandStyle>.logo {
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
 }
 
-.navbar>.brandStyle>.logoText{
+.navbar>.logos>.brandStyle>.logoText {
     display: flex;
     flex-direction: column;
-    min-width: 410px;
+    min-width: 300px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
 }
 
-.logoText>.logoTextHindi{
+.logoText>.logoTextHindi {
     display: flex;
-    font-size: 30px;
-    justify-content:space-between;
+    font-size: 20px;
+    justify-content: space-between;
 }
 
-.logoText>.logoTextEng{
-    font-size: 27px;
+.logoText>.logoTextEng {
+    font-size: 20px;
 }
 
-.logoLineBreak{
+.logoLineBreak {
     width: 90%;
     height: 0px;
-    border: 1px solid #000000;
+    border: 1px solid rgb(83, 83, 83);
     flex: none;
     order: 1;
     flex-grow: 0;
 }
 
-.navMenu{
+.navMenu {
     display: flex;
-    justify-content: space-around;
-    padding: 17px 48px 28px 48px;
+    justify-content: space-between;
+    padding: 17px 55px 28px 55px;
 }
 
-.btnss{
-    background: #0F69C3;
+.btnss {
+    background: #ffffff;
     box-shadow: -4px 4px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;    
+    border-radius: 6px;
     border: none;
     font-family: 'Helvetica';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;   
-    color: #FFFFFF;
-    padding: 7px 10px;
+    font-weight:normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: black;
+    padding: 9px 12px;
     margin: 0 5px;
     cursor: pointer;
 }
 
-.searchBox {
-    background: white;
-    margin-left: 20px;
+.logos {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    padding: 0 10px;
-    min-width: 250px;
-    border-radius: 20px;
+    padding: 30px 0 10px 70px;
 }
 
-.searchInput {
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 10px;
-    color: black;
-    width: 100%;
+.eLogo {
+    width: 105px;
+    height: 105px;
+    margin-right: 85px;
 }
 
-.searchInput::placeholder{
-    color: rgb(164, 158, 158);
-}
+.logoBreaker {
+    position: absolute;
+    width: 85px;
+    height: 0px;
+    left: 173px;
+    top: 69px;
 
-.searchBox>img{
-    cursor: pointer;
+    border: 1px solid rgb(83, 83, 83);
+    transform: matrix(0, 1, 1, 0, 0, 0);
 }
