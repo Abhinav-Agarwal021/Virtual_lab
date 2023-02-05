@@ -64,6 +64,10 @@
     cursor: pointer;
 }
 
+.selected{
+    background: #d6d5d5;
+}
+
 .logos {
     display: flex;
     justify-content: flex-start;

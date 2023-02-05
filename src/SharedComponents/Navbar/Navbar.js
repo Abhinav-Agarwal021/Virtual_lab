@@ -1,8 +1,21 @@
 import React from 'react'
 import styles from './Navbar.module.css'
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const Navbar = () => {
+
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') + 1);
+
+    const navigate = useNavigate()
+
+    const handleHome = () => {
+        navigate("/");
+    }
+
+    const handleExp = () => {
+        navigate("/experiments")
+    }
 
     return (
         <nav className={`${styles.navbar} container`}>
@@ -25,18 +38,16 @@ export const Navbar = () => {
             <hr className={styles.logoLineBreak} />
             <div className={styles.navMenu}>
                 <div className={styles.leftMenu}>
-                    <Link to="/">
-                        <button className={styles.btnss}>
-                            Home
-                        </button>
-                    </Link>
-                    <button className={styles.btnss}>
+                    <button className={`${styles.btnss} ${id === "" && styles.selected}`} onClick={handleHome}>
+                        Home
+                    </button>
+                    <button className={`${styles.btnss} ${id === "about" && styles.selected}`}>
                         About
                     </button>
-                    <button className={styles.btnss}>
-                        Exeriments
+                    <button className={`${styles.btnss} ${id === "experiments" && styles.selected}`} onClick={handleExp}>
+                        Experiments
                     </button>
-                    <button className={styles.btnss}>
+                    <button className={`${styles.btnss} ${id === "contact" && styles.selected}`}>
                         Contact Us
                     </button>
                 </div>
