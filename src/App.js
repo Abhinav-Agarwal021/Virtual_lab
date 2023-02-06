@@ -20,7 +20,15 @@ function App() {
           element={
             <>
               <Navbar />
-              <Experiments />
+              <Experiments exp={false} />
+            </>
+          }
+        />
+        <Route exact path="/experiments/:id"
+          element={
+            <>
+              <Navbar />
+              <Experiments exp={true} />
             </>
           }
         />
