@@ -17,6 +17,10 @@ export const Navbar = () => {
         navigate("/experiments")
     }
 
+    const handleAbout=()=>{
+        navigate("/about")
+    }
+
     return (
         <nav className={`${styles.navbar} container`}>
             <div className={styles.logos}>
@@ -41,7 +45,7 @@ export const Navbar = () => {
                     <button className={`${styles.btnss} ${id === "" && styles.selected}`} onClick={handleHome}>
                         Home
                     </button>
-                    <button className={`${styles.btnss} ${id === "about" && styles.selected}`}>
+                    <button className={`${styles.btnss} ${id === "about" && styles.selected}`} onClick={handleAbout}>
                         About
                     </button>
                     <button className={`${styles.btnss} ${id === "experiments" && styles.selected}`} onClick={handleExp}>

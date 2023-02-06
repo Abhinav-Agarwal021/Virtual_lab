@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Navbar } from './SharedComponents/Navbar/Navbar';
 import { Experiments } from './Components/Experiments/Experiments';
 import { Home } from './Components/Home/Home';
+import {About} from "./Components/About/About";
+
 
 function App() {
   return (
@@ -32,6 +34,14 @@ function App() {
             </>
           }
         />
+        <Route exact path="/about"
+        element={
+          <>
+            <Navbar />
+            <About />
+          </>
+        }/>
+
       </Routes>
     </BrowserRouter>
   );
