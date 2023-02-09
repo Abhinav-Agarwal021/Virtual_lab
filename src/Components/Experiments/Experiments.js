@@ -39,7 +39,42 @@ export const Experiments = (props) => {
                 { exp: "Heat Transfer in Natural Convection", aim: "To study the heat transfer phenomenon in natural convection" },
                 { exp: "Shell & Tube Heat Exchanger", aim: "To determine the rate of heat transfer,LMTD and overall heat transfer coefficient in shell and tube heat exchanger" },
             ]
-        }
+        },
+        {
+            subject: "Mass Transfer",
+            content: [
+                { exp: "Heat Transfer in Natural Convection", aim: "To study the heat transfer phenomenon in natural convection" },
+                { exp: "Shell & Tube Heat Exchanger", aim: "To determine the rate of heat transfer,LMTD and overall heat transfer coefficient in shell and tube heat exchanger" },
+            ]
+        },
+        {
+            subject: "Chemical Reaction Engineering",
+            content: [
+                { exp: "Heat Transfer in Natural Convection", aim: "To study the heat transfer phenomenon in natural convection" },
+                { exp: "Shell & Tube Heat Exchanger", aim: "To determine the rate of heat transfer,LMTD and overall heat transfer coefficient in shell and tube heat exchanger" },
+            ]
+        },
+        {
+            subject: "Fluid Mechanics",
+            content: [
+                { exp: "Heat Transfer in Natural Convection", aim: "To study the heat transfer phenomenon in natural convection" },
+                { exp: "Shell & Tube Heat Exchanger", aim: "To determine the rate of heat transfer,LMTD and overall heat transfer coefficient in shell and tube heat exchanger" },
+            ]
+        },
+        {
+            subject: "Mechanical Operations",
+            content: [
+                { exp: "Heat Transfer in Natural Convection", aim: "To study the heat transfer phenomenon in natural convection" },
+                { exp: "Shell & Tube Heat Exchanger", aim: "To determine the rate of heat transfer,LMTD and overall heat transfer coefficient in shell and tube heat exchanger" },
+            ]
+        },
+        {
+            subject: "Process Dynamics & Control",
+            content: [
+                { exp: "Heat Transfer in Natural Convection", aim: "To study the heat transfer phenomenon in natural convection" },
+                { exp: "Shell & Tube Heat Exchanger", aim: "To determine the rate of heat transfer,LMTD and overall heat transfer coefficient in shell and tube heat exchanger" },
+            ]
+        },
     ]
 
     const handleOpenSubject = (index) => {
