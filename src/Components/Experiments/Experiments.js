@@ -82,7 +82,7 @@ export const Experiments = (props) => {
     }
 
     const handleOpenExp = (index) => {
-
+        navigate(`/experiment/${id}/${index}`)
     }
 
     return (
