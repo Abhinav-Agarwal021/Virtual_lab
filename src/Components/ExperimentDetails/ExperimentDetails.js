@@ -1,15 +1,23 @@
 import React, { useState } from 'react'
 import styles from "./ExperimentDetails.module.css"
 import data from '../../Data.json'
-import MathJax from 'react-mathjax';
+import 'katex/dist/katex.min.css';
+import { BlockMath } from 'react-katex';
+import { useNavigate } from "react-router-dom"
 import { Quiz } from '../../SharedComponents/Quiz/Quiz';
 
 export const ExperimentDetails = () => {
+
+    const navigate = useNavigate()
 
     var url = window.location.pathname;
     var result = url.split('/');
     var index = result[result.length - 1];
     var id = result[result.length - 2];
+
+    const EnterGame = () => {
+        navigate('/naturalConvection')
+    }
 
     const [selected, setSelected] = useState(0)
 
@@ -49,9 +57,7 @@ export const ExperimentDetails = () => {
                                     <div key={idx} className={styles.contentData}>{data}</div>
                                 ))}
                                 {data.data[id].experiments[index].theory[0].formula1.map((data, idx) => (
-                                    <MathJax.Provider key={idx}>
-                                        <MathJax.Node formula={data} />
-                                    </MathJax.Provider>
+                                    <BlockMath key={idx} math={data} />
                                 ))}
                                 {data.data[id].experiments[index].theory[0].th2.map((data, idx) => (
                                     <div key={idx} className={styles.contentData}>{data}</div>
@@ -64,8 +70,8 @@ export const ExperimentDetails = () => {
                                     Experimental Setup:
                                 </div>
                                 <div className={styles.aimContent}>
-                                    {data.data[id].experiments[index].experimentalSetup.map((data) => (
-                                        <li>{data}</li>
+                                    {data.data[id].experiments[index].experimentalSetup.map((data, idx) => (
+                                        <li key={idx}>{data}</li>
                                     ))}
                                 </div>
                             </div>
@@ -75,8 +81,8 @@ export const ExperimentDetails = () => {
                                         Experimental Procedure:
                                     </div>
                                     <div className={styles.aimContent}>
-                                        {data.data[id].experiments[index].experimantalProcedure.map((data) => (
-                                            <li>{data}</li>
+                                        {data.data[id].experiments[index].experimantalProcedure.map((data, idx) => (
+                                            <li key={idx}>{data}</li>
                                         ))}
                                     </div>
                                 </div>
@@ -84,9 +90,19 @@ export const ExperimentDetails = () => {
                                     <div className={styles.quiz}>
                                         <Quiz subject={id} experiment={index} />
                                     </div>
-                                    : <div></div>}
+                                    : selected === 3 ?
+                                        <div className={styles.game}>
+                                            <p className={styles.theoryContent}>Want to get started with the experiment.....?</p>
+                                            <div className={styles.enterGame} onClick={() => EnterGame()}>
+                                                Start Simulator
+                                            </div>
+                                        </div>
+                                        : <div></div>}
                 </div>
             </div>
         </div>
     )
 }
+
+
+

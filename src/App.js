@@ -5,6 +5,7 @@ import { Experiments } from './Components/Experiments/Experiments';
 import { Home } from './Components/Home/Home';
 import { About } from "./Components/About/About";
 import { ExperimentDetails } from './Components/ExperimentDetails/ExperimentDetails';
+import { Game } from './Components/Game/Game';
 
 
 function App() {
@@ -50,6 +51,11 @@ function App() {
               <About />
             </>
           } />
+        <Route exact path='/naturalConvection'
+          element={
+            <Game />
+          }
+        />
 
       </Routes>
     </BrowserRouter>
