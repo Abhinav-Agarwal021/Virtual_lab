@@ -1,10 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-import json
-import pandas as pd
-import requests
-import numpy as np
 import matlab.engine
+import json
 
 app = Flask(__name__)
 eng = matlab.engine.start_matlab()
@@ -18,12 +15,17 @@ def index():
     return ('Hey!!')
 
 
-@app.route('/api/all_temp', methods=["GET"])
+@app.route('/api/naturalconvection', methods=["POST"])
 @cross_origin()
 def allTemp():
-    # data = request.get_json()
-    h = eng.model(0.6)
-    return jsonify({'result': h})
+    data = request.get_json()
+    current = float(data['current'])
+    Temp = eng.tmodel(current)
+    h = eng.hmodel(current)
+    STemp = [str(x) for x in Temp]
+    h = json.dumps(h)
+    Temp = json.dumps(STemp)
+    return [Temp, h]
 
 
 if __name__ == "__main__":
