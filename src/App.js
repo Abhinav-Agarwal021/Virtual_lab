@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Navbar } from './SharedComponents/Navbar/Navbar';
 import { Experiments } from './Components/Experiments/Experiments';
 import { Home } from './Components/Home/Home';
-import {About} from "./Components/About/About";
+import { About } from "./Components/About/About";
+import { ExperimentDetails } from './Components/ExperimentDetails/ExperimentDetails';
+import { Game } from './Components/Game/Game';
 
 
 function App() {
@@ -34,13 +36,26 @@ function App() {
             </>
           }
         />
+        <Route exact path="/experiment/:id/:index"
+          element={
+            <>
+              <Navbar />
+              <ExperimentDetails />
+            </>
+          }
+        />
         <Route exact path="/about"
-        element={
-          <>
-            <Navbar />
-            <About />
-          </>
-        }/>
+          element={
+            <>
+              <Navbar />
+              <About />
+            </>
+          } />
+        <Route exact path='/naturalConvection'
+          element={
+            <Game />
+          }
+        />
 
       </Routes>
     </BrowserRouter>

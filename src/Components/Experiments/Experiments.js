@@ -13,8 +13,9 @@ export const Experiments = (props) => {
 
     const [searchExp, setSearchExp] = useState("")
 
-    const handleSearch = () => {
-
+    const handleSearch = (e) => {
+        var searchText = e.target.value.toLowerCase();
+        setSearchExp(searchText);
     }
 
     const handleKeyDown = (e) => {
@@ -77,12 +78,19 @@ export const Experiments = (props) => {
         },
     ]
 
+    const filterData = (!props.exp ? subjects : experiments[id].content).filter((el) => {
+        if (searchExp === '')
+            return (!props.exp ? subjects : experiments[id].content);
+        else
+            return (!props.exp ? el.subject : el.exp).toLowerCase().includes(searchExp);
+    })
+
     const handleOpenSubject = (index) => {
         navigate(`/experiments/${index}`)
     }
 
     const handleOpenExp = (index) => {
-
+        navigate(`/experiment/${id}/${index}`)
     }
 
     return (
@@ -92,13 +100,13 @@ export const Experiments = (props) => {
                     {!props.exp ? "Subjects" : `Experiments under ${experiments[id].subject}`}
                 </div>
                 <div className={styles.searchBox}>
-                    <input type="text" value={searchExp} placeholder='search for a subject' className={styles.searchInput} onChange={(e) => setSearchExp(e.target.value)} onKeyDown={handleKeyDown} />
-                    <img src="/images/search-icon.png" alt="search" onClick={handleSearch} />
+                    <input type="text" value={searchExp} placeholder='search for a subject' className={styles.searchInput} onChange={handleSearch} onKeyDown={handleKeyDown} />
+                    <img src="/images/search-icon.png" alt="search" />
                 </div>
             </div>
             <div className={styles.allSubjects}>
-                {(!props.exp ? subjects : experiments[id].content).map((data, index) => (
-                    <div className={styles.subCard} onClick={() => !props.exp ? handleOpenSubject(index) : handleOpenExp(index)}>
+                {(filterData)?.map((data, index) => (
+                    <div key={index} className={styles.subCard} onClick={() => !props.exp ? handleOpenSubject(index) : handleOpenExp(index)}>
                         <div className={styles.heading}>
                             {!props.exp ? data.subject : data.exp}
                         </div>

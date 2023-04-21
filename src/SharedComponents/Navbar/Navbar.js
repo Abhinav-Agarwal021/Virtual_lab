@@ -17,9 +17,20 @@ export const Navbar = () => {
         navigate("/experiments")
     }
 
-    const handleAbout=()=>{
+    const handleAbout = () => {
         navigate("/about")
     }
+
+    // const handleScroll = () => {
+    //     if (window.scrollY > 159)
+    //         setChangeNav(true)
+    //     else
+    //         setChangeNav(false)
+    // }
+
+    // useEffect(() => {
+    //     window.addEventListener('scroll', handleScroll)
+    // })
 
     return (
         <nav className={`${styles.navbar} container`}>
